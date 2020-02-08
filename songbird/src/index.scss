@@ -1,0 +1,38 @@
+@import "components/Header/Header";
+@import "components/Question/Question";
+@import "components/Answers/Answers";
+@import "components/Description/Description";
+@import "components/Footer/Footer";
+@font-face {
+  font-family: "I Am A Bird";
+  src: url("./asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.eot"); /* IE9*/
+  src: url("./asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.eot?#iefix") format("embedded-opentype"),
+  url("./asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.woff2") format("woff2"),
+  url("./asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.woff") format("woff"),
+  url("./asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.ttf") format("truetype"),
+  url("./asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.svg#I Am A Bird W01 Bold") format("svg");
+}
+
+@font-face {
+  font-family: "Birdland Aeroplane";
+  src: url("asserts/fonts/birdlandAeroplane/birdlandAeroplane.ttf") format("truetype");
+}
+
+.body {
+background-color: #7f7679;
+}
+
+.root {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.main {
+  background-color: $gray;
+  width: 75%;
+  height: 65vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: 'question question'
+  'answers description';
+}

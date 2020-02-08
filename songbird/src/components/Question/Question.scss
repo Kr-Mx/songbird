@@ -1,0 +1,41 @@
+@import "../variables";
+
+.main__question {
+  grid-area: question;
+  width: 100%;
+  height: 160px;
+  margin: 0 auto;
+  display: grid;
+  background-color: $white;
+  color: $yellow;
+  font-size: 20px;
+  grid-template-areas: 'photo name' 'photo audio';
+  border-radius: 10px;
+  border: $yellow solid 3px;
+  grid-template-columns: 1fr 3fr;
+  align-self: end;
+
+  &-photo {
+    grid-area: photo;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+  }
+
+  &-name {
+    justify-self: center;
+    align-self: center;
+    font-size: 25px;
+    grid-area: name;
+    padding: 10px;
+  }
+
+  &-audio {
+    grid-area: audio;
+    justify-self: center;
+    width: 70%;
+    padding: 5px;
+  }
+}
+
+

@@ -1,0 +1,45 @@
+@import "../variables.scss";
+
+.main__description {
+  grid-area: description;
+  display: grid;
+  width: calc(100% - 35px);
+  grid-template-areas: 'photo name''photo audio' 'about about';
+  padding: 10px;
+  margin: 16px;
+  border-radius: 10px;
+  border: $yellow solid 3px;
+  font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
+
+  background-color: $white;
+
+  &-photo {
+    grid-area: photo;
+  }
+
+  &-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    grid-area: name;
+  }
+
+  &-audio {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    grid-area: audio;
+  }
+
+  &-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: about;
+    margin: 0 16px;
+  }
+}
+
+;

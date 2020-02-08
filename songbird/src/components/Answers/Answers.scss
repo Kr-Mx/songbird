@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+  .main__answers {
+    grid-area: answers;
+    list-style-type: none;
+    background-color: $white;
+    display: grid;
+    width: 250px;
+    align-items: center;
+    padding: 5px 0;
+    font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
+    color: $black;
+    border: $yellow solid 3px;
+    border-radius: 10px;
+
+    &-item {
+      display: flex;
+      text-align: center;
+      margin: 0 auto;
+      min-width: 150px;
+      max-width: 300px;
+      height: 30px;
+      border-radius: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    &-item:hover {
+      background-color: $yellow;
+      cursor: pointer;
+    }
+}
+
