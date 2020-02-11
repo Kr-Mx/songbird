@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <footer className='footer'>
-        <button className='footer__button' disabled={!this.props.isGuessed} onClick={this.props.nextRound}>Следующий вопрос</button>
+        <button className='footer__button' disabled={!this.props.isGuessed} onClick={this.props.nextRound}>Next question</button>
         <FooterContacts/>
       </footer>
     )

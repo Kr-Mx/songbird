@@ -1,5 +1,5 @@
 import React from "react";
-import unnamedBird from '../../asserts/images/unnamedBird.png';
+import unnamedCd from '../../asserts/images/unnamedCd.svg';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -18,7 +18,7 @@ render(){
     );
     return (
       <div className='main__question'>
-          <img className='main__question-photo' src={this.props.birdImage?this.props.birdImage:unnamedBird} alt=''/>
+          <img className='main__question-photo' src={this.props.birdImage?this.props.birdImage:unnamedCd} alt=''/>
           <span className='main__question-name'>{this.props.birdName?this.props.birdName:<span>&#10068;&#10068;&#10068;&#10068;&#10068;</span>}</span>
           <Player/>
       </div>

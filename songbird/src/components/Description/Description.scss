@@ -3,8 +3,9 @@
 .main__description {
   grid-area: description;
   display: grid;
+  height: content-box;
   width: calc(100% - 35px);
-  grid-template-areas: 'photo name''photo audio' 'about about';
+  grid-template-areas: 'photo name''photo species''photo audio' 'about about';
   padding: 10px;
   margin: 16px;
   border-radius: 10px;
@@ -15,6 +16,8 @@
   &-photo {
     grid-area: photo;
     height: 100px;
+    justify-self: flex-end;
+    border-radius: 5px;
   }
 
   &-name {
@@ -32,6 +35,12 @@
     align-self: center;
     grid-area: audio;
   }
+  &-species{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    grid-area: species;
+  }
 
   &-about {
     display: flex;
@@ -39,7 +48,24 @@
     align-items: center;
     grid-area: about;
     margin: 0 16px;
+    font-size: 14px;
+    white-space: pre-wrap;
+    text-align: justify;
   }
+}
+.main__hint{
+  grid-area: description;
+  display: grid;
+  height: content-box;
+  width: calc(100% - 35px);
+  padding: 10px;
+  margin: 16px;
+  border-radius: 10px;
+  border: $yellow solid 3px;
+  font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
+  background-color: $white;
+  align-items: center;
+  text-align: center;
 }
 
 ;

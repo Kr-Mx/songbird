@@ -5,13 +5,13 @@ export default function GameOver(props) {
 return(
   (props.score !== props.maxScore)?
     <div className={props.isFinish?'message__congrats':'message__hide'}>
-      <span className='message__congrats-title' >Поздравляем</span>
-      <span className='message__congrats-text'>Вы набрали {props.score} баллов из {props.maxScore} возможных</span>
-      <button className='message__congrats-button' onClick={props.restartGame}>Сыграть еще</button>
+      <span className='message__congrats-title' >Congratulations!</span>
+      <span className='message__congrats-text'>You scored {props.score} points out of {props.maxScore} possible</span>
+      <button className='message__congrats-button' onClick={props.restartGame}>Play again</button>
     </div>
-    : <div className={!props.isFinish?'message__congrats':'message__hide'}>
-      <span className='message__congrats-title' >Поздравляем</span>
-      <span className='message__congrats-text'>Вы набрали максимальное количество баллов. Вы знаете о птицах всё.</span>
+    : <div className={props.isFinish?'message__congrats':'message__hide'}>
+      <span className='message__congrats-title' >Congratulations!</span>
+      <span className='message__congrats-text'>You scored the maximum number of points. You know everything about music.</span>
     </div>
  )
 }

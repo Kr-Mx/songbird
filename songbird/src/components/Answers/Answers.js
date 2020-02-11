@@ -68,7 +68,8 @@ export default class Answers extends React.Component {
         </ul>
         <Description birdData={this.state.birdData}
                      birdsData={this.props.birdsData}
-                     round={this.props.round}/>
+                     round={this.props.round}
+        />
         <Footer nextRound={this.changeRound.bind(this)} isGuessed={this.props.isGuessed}/>
       </>
     )

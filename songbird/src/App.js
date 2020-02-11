@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header'
 import Question from "./components/Question/Question";
 import Answers from "./components/Answers/Answers";
-import unnamedBird from './asserts/images/unnamedBird.png';
+import unnamedCd from './asserts/images/unnamedCd.svg';
 import birdsData from "./birdsData";
 import GameOver from "./components/GameOver/GameOver";
 
@@ -13,7 +13,7 @@ export default class App extends React.Component {
     this.answersLength = this.birdsData[0].length;
     this.state = {
       isFinish: false,
-      birdImage: unnamedBird,
+      birdImage: unnamedCd,
       birdName: '',
       round: 0,
       score: 0,
@@ -42,7 +42,7 @@ export default class App extends React.Component {
   showBirdData(birdData) {
     if (!birdData) {
       this.setState({
-          birdImage: unnamedBird,
+          birdImage: unnamedCd,
           birdName: '',
         },
       );
@@ -71,7 +71,7 @@ export default class App extends React.Component {
     this.setState({
       isFinish: false,
       answerIndex: this.randomizeAnswer(this.answersLength),
-      birdImage: unnamedBird,
+      birdImage: unnamedCd,
       birdName: '',
       score: 0,
       round: 0,
