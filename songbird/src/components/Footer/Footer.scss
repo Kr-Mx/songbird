@@ -1,11 +1,10 @@
 @import "../variables";
 .footer{
-  width: 100%;
+  grid-area: footer;
   font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 19vh;
   justify-content: space-between;
   &__button{
     width: 100%;

@@ -21,12 +21,26 @@
       max-width: 300px;
       height: 30px;
       border-radius: 10px;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
+      &-signal{
+        margin:0 10px;
+        width: 15px;
+        height: 15px;
+        background-color: $gray;
+        border-radius: 10px;
+      }
     }
     &-item:hover {
       background-color: $yellow;
       cursor: pointer;
     }
+
+}
+.guessed{
+  background-color: green;
+}
+.not-guessed{
+  background-color: red;
 }
 

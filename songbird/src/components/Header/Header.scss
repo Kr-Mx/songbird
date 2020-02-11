@@ -53,9 +53,9 @@
       border: $cream solid 1px;
       border-radius: 10px;
     }
-    &-element:first-child{
-      background-color: $yellow;
-    }
   }
+}
+.active{
+  background-color: $yellow;
 }
 
