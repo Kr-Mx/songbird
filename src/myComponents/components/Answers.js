@@ -39,10 +39,13 @@ export default class Answers extends React.Component {
     if (!this.props.isGuessed) return;
     if (this.props.round === this.props.gameData.length - 1) {
       this.props.finishGame();
+      this.setState({
+        artistData: null,
+      });
     }
     if (this.props.round < this.props.gameData.length - 1) {
       this.setState({
-        birdData: null,
+        artistData: null,
       });
       this.props.nextRound();
       this.props.guessAnswer();
