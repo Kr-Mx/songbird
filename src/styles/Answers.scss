@@ -1,31 +1,30 @@
-@import "../variables.scss";
+@import "variables";
 
 .main__answers {
-  grid-area: answers;
-
-  background-color: $white;
   display: grid;
-  width: 250px;
+  grid-area: answers;
   align-items: center;
+  width: 250px;
   padding: 5px 0;
   color: $black;
+  background-color: $white;
   border: $yellow solid 3px;
   border-radius: 10px;
 
   &-item {
     display: flex;
-    text-align: center;
-    margin: 0 auto;
+    align-items: center;
+    justify-content: left;
     width: 250px;
     height: 30px;
+    margin: 0 auto;
+    text-align: center;
     border-radius: 10px;
-    justify-content: left;
-    align-items: center;
 
     &-signal {
-      margin: 0 10px;
       width: 15px;
       height: 15px;
+      margin: 0 10px;
       background-color: $gray;
       border-radius: 10px;
     }
@@ -47,14 +46,15 @@
 }
 
 @media screen and (max-width: 480px) {
+
   .main__answers {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
     width: calc(90% - 6px);
     max-width: 320px;
     margin: 5px 0;
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    flex-direction: column;
 
     &-item {
       height: 25px;
@@ -62,15 +62,17 @@
   }
 
 }
+
 @media screen and (max-width: 768px) and (min-width: 481px) {
+
   .main__answers {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
     width: calc(95% - 6px);
     max-width: 320px;
     margin: 5px 0;
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    flex-direction: column;
 
   }
 

@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from './components/Header/Header'
-import Question from "./components/Question/Question";
-import Answers from "./components/Answers/Answers";
-import unnamedCd from './asserts/images/unnamedCd.svg';
-import birdsData from "./birdsData";
-import GameOver from "./components/GameOver/GameOver";
+import Header from './components/Header'
+import Question from "./components/Question";
+import Answers from "./components/Answers";
+import unnamedCd from '../asserts/images/unnamedCd.svg';
+import gameData from "../asserts/data/gameData";
+import GameOver from "./components/GameOver";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.birdsData = birdsData;
+    this.birdsData = gameData;
     this.answersLength = this.birdsData[0].length;
     this.state = {
       isFinish: false,

@@ -1,0 +1,26 @@
+@import "styles/Header";
+
+@import "styles/Question";
+
+@import "styles/Answers";
+
+@import "styles/Description";
+
+@import "styles/Footer";
+
+@import "styles/GameOver";
+
+@font-face {
+  font-family: "I Am A Bird";
+  src: url("asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.eot");
+  src: url("asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.eot?#iefix") format("embedded-opentype"),
+    url("asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.woff2") format("woff2"),
+    url("asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.woff") format("woff"),
+    url("asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.ttf") format("truetype"),
+    url("asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.svg#I Am A Bird W01 Bold") format("svg");
+}
+
+@font-face {
+  font-family: "Birdland Aeroplane";
+  src: url("asserts/fonts/birdlandAeroplane/birdlandAeroplane.ttf") format("truetype");
+}

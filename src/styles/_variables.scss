@@ -1,0 +1,67 @@
+$white: #f1f3f4;
+$black: #1c1c1c;
+$gray: #7f7679;
+$yellow:#e5be01;
+$cream: #fdf4e3;
+
+.rhap_container {
+  background-color: $white;
+  box-shadow: none;
+}
+$border: $yellow solid 3px;
+
+%self-center {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+%items-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.body {
+  font-family: "I Am A Bird", "Times New Roman", sans-serif;
+  list-style-type: none;
+  background-color: $gray;
+}
+
+.root {
+  max-width: 1024px;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.main {
+  display: grid;
+  grid-template-areas: "question question" "answers description" "footer footer";
+  width: 75%;
+  height: 81vh;
+  margin: 0 auto;
+  background-color: $gray;
+}
+
+@media screen and (max-width: 480px) {
+
+  .main {
+    grid-template-areas: "question" "answers" "footer" "description";
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+
+  .main {
+    grid-template-areas: "question" "answers" "footer" "description";
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+
+  .main {
+    width: 90%;
+  }
+
+}

@@ -1,46 +1,51 @@
-@import "../variables";
-.footer{
-  grid-area: footer;
+@import "variables";
+
+.footer {
   display: flex;
   flex-direction: column;
+  grid-area: footer;
   align-items: center;
   justify-content: space-between;
-  &__button{
+
+  &__button {
     width: 100%;
-    -webkit-appearance: none;
-    border-radius: 10px;
     height: 50px;
-    outline: none;
-    background-color: $yellow;
     padding: 0;
-    border: $black solid 3px;
-    font: inherit;
     color: inherit;
+    font: inherit;
+    background-color: $yellow;
+    border: $black solid 3px;
+    border-radius: 10px;
+    outline: none;
+    -webkit-appearance: none;
   }
-  &__button:active{
-    transform: translateY(2px);
+
+  &__button:active {
     background-color: $white;
+    transform: translateY(2px);
   }
-  &__button:hover{
+
+  &__button:hover {
     cursor: pointer;
   }
-  &__button:disabled{
+
+  &__button:disabled {
     background-color: $gray;
   }
 
   &__contacts {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
     margin-bottom: 0;
     padding: 0;
-    list-style-type: none;
     color: $yellow;
+    list-style-type: none;
     background-color: $black;
     border: $yellow solid 3px;
     border-radius: 10px;
-    width: 100%;
-    height: 50px;
-    justify-content: center;
 
 
     &-link-image {
@@ -59,11 +64,14 @@
 }
 
 @media screen and (max-width: 480px) {
+
   .footer {
-    &__button{
+
+    &__button {
       width: 50%;
-    height: 50px;
+      height: 50px;
       margin-bottom: 5px;}
+
     &__contacts {
       display: none;
     }
@@ -71,7 +79,9 @@
   }
 
 }
+
 @media screen and (max-width: 768px) and (min-width: 481px) {
+
   .footer {
 
     &__contacts {

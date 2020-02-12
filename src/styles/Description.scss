@@ -1,114 +1,126 @@
-@import "../variables.scss";
+@import "variables";
 
 .main__description {
-  grid-area: description;
   display: grid;
-  height: content-box;
+  grid-area: description;
+  grid-template-areas: "photo name""photo species""photo audio" "about about";
   width: calc(100% - 35px);
-  grid-template-areas: 'photo name''photo species''photo audio' 'about about';
-  padding: 10px;
+  height: content-box;
   margin: 16px;
-  border-radius: 10px;
-  border: $yellow solid 3px;
+  padding: 10px;
   background-color: $white;
+  border: $yellow solid 3px;
+  border-radius: 10px;
 
   &-photo {
     grid-area: photo;
-    height: 100px;
     justify-self: flex-end;
+    height: 100px;
     border-radius: 5px;
   }
 
   &-name {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    font-weight: bold;
     grid-area: name;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 25px;
   }
 
   &-audio {
     display: flex;
-    justify-self: center;
-    align-self: center;
     grid-area: audio;
-    max-width: 100%;
-    min-width: 250px;
-  }
-  &-species{
-    display: flex;
-    justify-self: center;
     align-self: center;
+    justify-self: center;
+    min-width: 250px;
+    max-width: 100%;
+  }
+
+  &-species {
+    display: flex;
     grid-area: species;
+    align-self: center;
+    justify-self: center;
   }
 
   &-about {
     display: flex;
-    justify-content: center;
-    align-items: center;
     grid-area: about;
+    align-items: center;
+    justify-content: center;
     margin: 0 16px;
     font-size: 14px;
     white-space: pre-wrap;
     text-align: justify;
   }
 }
-.main__hint{
-  grid-area: description;
+
+.main__hint {
   display: grid;
-  height: content-box;
-  width: calc(100% - 35px);
-  padding: 10px;
-  margin: 16px;
-  border-radius: 10px;
-  border: $yellow solid 3px;
-  background-color: $white;
+  grid-area: description;
   align-items: center;
+  width: calc(100% - 35px);
+  height: content-box;
+  margin: 16px;
+  padding: 10px;
   text-align: center;
+  background-color: $white;
+  border: $yellow solid 3px;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 480px) {
+
   .main__description {
-    width: calc(95% - 26px);
-    justify-self: center;
+    grid-template-areas: "about about" "photo photo""name species""audio audio";
     align-self: center;
+    justify-self: center;
+    width: calc(95% - 26px);
     margin: 0;
-    grid-template-areas: 'about about' 'photo photo''name species''audio audio' ;
+
     &-photo {
       display: flex;
-      justify-self: center;
       align-self: center;
+      justify-self: center;
       margin: 5px;
     }
+
     &-about {
       margin: 0;
     }
-    &-species{
+
+    &-species {
       justify-self: start;
 
     }
-    &-name{
-      font-size: 16px;
-      justify-self: end
+
+    &-name {
+      justify-self: end;
+      font-size: 16px
     }
-    &-species::before{
-      content: ' — ';
+
+    &-species::before {
       margin: 0 2px;
+      content: " — ";
     }
   }
-  .main__hint{
-    width: calc(95% - 26px);
-    justify-self: center;
+
+  .main__hint {
     align-self: center;
+    justify-self: center;
+    width: calc(95% - 26px);
     margin: 0;
     padding: 5px;
   }
 }
+
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  .main__hint{
+
+  .main__hint {
     margin: 5px;
   }
+
   .main__description {
     margin: 5px;
   }
