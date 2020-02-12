@@ -1,45 +1,64 @@
 @import "../variables.scss";
 
-  .main__answers {
-    grid-area: answers;
-    list-style-type: none;
-    background-color: $white;
-    display: grid;
-    width: 250px;
-    align-items: center;
-    padding: 5px 0;
-    font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
-    color: $black;
-    border: $yellow solid 3px;
-    border-radius: 10px;
+.main__answers {
+  grid-area: answers;
 
-    &-item {
-      display: flex;
-      text-align: center;
-      margin: 0 auto;
-      width: 250px;
-      height: 30px;
+  background-color: $white;
+  display: grid;
+  width: 250px;
+  align-items: center;
+  padding: 5px 0;
+  color: $black;
+  border: $yellow solid 3px;
+  border-radius: 10px;
+
+  &-item {
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    justify-content: left;
+    align-items: center;
+
+    &-signal {
+      margin: 0 10px;
+      width: 15px;
+      height: 15px;
+      background-color: $gray;
       border-radius: 10px;
-      justify-content: left;
-      align-items: center;
-      &-signal{
-        margin:0 10px;
-        width: 15px;
-        height: 15px;
-        background-color: $gray;
-        border-radius: 10px;
-      }
     }
-    &-item:hover {
-      background-color: $yellow;
-      cursor: pointer;
-    }
+  }
+
+  &-item:hover {
+    background-color: $yellow;
+    cursor: pointer;
+  }
 
 }
-.guessed{
+
+.guessed {
   background-color: green;
 }
-.not-guessed{
+
+.not-guessed {
   background-color: red;
 }
 
+@media screen and (max-width: 480px) {
+  .main__answers {
+    width: calc(95% - 6px);
+    max-width: 400px;
+    margin: 5px 0;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    flex-direction: column;
+
+    &-item {
+      height: 25px;
+    }
+  }
+
+}

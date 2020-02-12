@@ -10,7 +10,6 @@
   margin: 16px;
   border-radius: 10px;
   border: $yellow solid 3px;
-  font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
   background-color: $white;
 
   &-photo {
@@ -62,10 +61,48 @@
   margin: 16px;
   border-radius: 10px;
   border: $yellow solid 3px;
-  font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
   background-color: $white;
   align-items: center;
   text-align: center;
 }
 
-;
+@media screen and (max-width: 480px) {
+  .main__description {
+    width: calc(95% - 26px);
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    grid-template-areas: 'about about' 'photo photo''name species''audio audio' ;
+    &-photo {
+      display: flex;
+      justify-self: center;
+      align-self: center;
+      margin: 5px;
+    }
+    &-about {
+      margin: 0;
+    }
+    &-species{
+      justify-self: start;
+
+    }
+    &-name{
+      font-size: 16px;
+      justify-self: end
+    }
+    &-species::before{
+      content: ' — ';
+      margin: 0 2px;
+    }
+    &-audio{
+      width: 250px;
+    }
+  }
+  .main__hint{
+    width: calc(95% - 26px);
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    padding: 5px;
+  }
+}
