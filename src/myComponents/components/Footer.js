@@ -1,16 +1,12 @@
-import React from "react";
-import FooterContacts from "./FooterContacts";
-export default class Footer extends React.Component {
-  constructor(props){
-    super(props);
-  }
+import React from 'react';
+import FooterContacts from './FooterContacts';
 
-  render() {
-    return (
-      <footer className='footer'>
-        <button className='footer__button' disabled={!this.props.isGuessed} onClick={this.props.nextRound}>Next question</button>
-        <FooterContacts/>
-      </footer>
-    )
-  }
+export default function Footer(props) {
+  return (
+    <footer className='footer'>
+      <button className='footer__button' disabled={!props.isGuessed} onClick={props.nextRound}>Next question
+      </button>
+      <FooterContacts/>
+    </footer>
+  );
 }

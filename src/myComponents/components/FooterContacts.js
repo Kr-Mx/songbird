@@ -1,33 +1,33 @@
-import React from "react";
-import email_icon from '../../asserts/images/email_icon.svg';
-import github_logo from '../../asserts/images/github_logo.png';
-import telegram_logo from '../../asserts/images/telegram_logo.png'
+import React from 'react';
+import emailIcon from '../../asserts/images/emailIcon.svg';
+import githubLogo from '../../asserts/images/githubLogo.png';
+import telegramLogo from '../../asserts/images/telegramLogo.png';
 
-export default function FooterContacts (props) {
-    return (
+export default function FooterContacts() {
+  return (
         <ul className='footer__contacts'>
           If you have any suggestion, please contact me:
           <li className="footer__contacts-link">
             <a className="footer__contacts-link-item" href="https://github.com/Kr-Mx">
               <img className="footer__contacts-link-image"
-                   src={github_logo}
+                   src={githubLogo}
                    alt="github-logo"/>
             </a>
           </li>
           <li className="footer__contacts-link">
             <a className="footer__contacts-link-item" href="https://t.me/Mx_Kr">
               <img className="footer__contacts-link-image"
-                   src={telegram_logo}
+                   src={telegramLogo}
                    alt="telegram-logo"/>
             </a>
           </li>
           <li className="footer__contacts-link">
             <a className="footer__contacts-link-item" href="mailto:maks.kryshnev@gmail.com">
               <img className="footer__contacts-link-image"
-                   src={email_icon}
+                   src={emailIcon}
                    alt="mail-logo"/>
             </a>
           </li>
         </ul>
-    )
-  }
+  );
+}

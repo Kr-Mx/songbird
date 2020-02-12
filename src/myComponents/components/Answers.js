@@ -6,29 +6,29 @@ export default class Answers extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      birdData: null,
+      artistData: null,
       score: 5,
     };
   }
 
-  checkBird(birdData, e) {
+  checkArtist(artistData, e) {
     if (e.target.tagName !== 'LI') return null;
     this.setState({
-      birdData: birdData,
+      artistData: artistData,
     });
     if (e.target.firstChild.classList.length > 1 || this.props.isGuessed) {
       return null;
     }
-    if (birdData.name === this.props.birdsData[this.props.round][this.props.answerIndex].name) {
+    if (artistData.name === this.props.gameData[this.props.round][this.props.answerIndex].name) {
       e.target.firstChild.classList.add('guessed');
-      this.props.showBirdData(birdData);
+      this.props.setArtistData(artistData);
       this.props.increaseScore(this.state.score);
       this.props.guessAnswer();
       this.setState({
         score: 5,
       });
     } else {
-      e.target.firstChild.classList.add("not-guessed");
+      e.target.firstChild.classList.add('not-guessed');
       this.setState({
         score: this.state.score - 1,
       });
@@ -37,37 +37,38 @@ export default class Answers extends React.Component {
 
   changeRound() {
     if (!this.props.isGuessed) return;
-    if (this.props.round === this.props.birdsData.length - 1) {
-      this.props.finishGame()
+    if (this.props.round === this.props.gameData.length - 1) {
+      this.props.finishGame();
     }
-    if (this.props.round < this.props.birdsData.length - 1) {
+    if (this.props.round < this.props.gameData.length - 1) {
       this.setState({
         birdData: null,
       });
       this.props.nextRound();
       this.props.guessAnswer();
-      this.props.showBirdData();
+      this.props.setArtistData();
       document.querySelectorAll('.main__answers-item').forEach((item) => {
-        item.firstChild.classList.remove("guessed");
-        item.firstChild.classList.remove("not-guessed");
+        item.firstChild.classList.remove('guessed');
+        item.firstChild.classList.remove('not-guessed');
       });
     }
   }
 
   render() {
-    const answersList = this.props.birdsData[this.props.round]
-      .map(birdData => {
-        return <li className='main__answers-item' key={birdData.id} onClick={this.checkBird.bind(this, birdData)}>
+    console.log('Грузится со стороннего ресурса надо подождать...');
+    console.log(`Правильный вариант №${this.props.answerIndex+1}`);
+    let answersList = this.props.gameData[this.props.round].map((artistData) => {
+      return <li className='main__answers-item' key={artistData.id} onClick={this.checkArtist.bind(this, artistData)}>
           <div className='main__answers-item-signal'></div>
-          {birdData.name}</li>
-      });
+          {artistData.name}</li>;
+    });
     return (
       <>
         <ul className='main__answers'>
           {answersList}
         </ul>
-        <Description birdData={this.state.birdData}
-                     birdsData={this.props.birdsData}
+        <Description artistData={this.state.artistData}
+                     gameData={this.props.gameData}
                      round={this.props.round}
         />
         <Footer nextRound={this.changeRound.bind(this)} isGuessed={this.props.isGuessed}/>

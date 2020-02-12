@@ -7,5 +7,3 @@ import 'normalize.css/normalize.css';
 
 
 ReactDOM.render(<App/>, document.getElementById('root'));
-
-

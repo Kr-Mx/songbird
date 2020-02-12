@@ -1,86 +1,87 @@
 import React from 'react';
-import Header from './components/Header'
-import Question from "./components/Question";
-import Answers from "./components/Answers";
+import Header from './components/Header';
+import Question from './components/Question';
+import Answers from './components/Answers';
 import unnamedCd from '../asserts/images/unnamedCd.svg';
-import gameData from "../asserts/data/gameData";
-import GameOver from "./components/GameOver";
+import gameData from '../asserts/data/gameData';
+import GameOver from './components/GameOver';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.birdsData = gameData;
-    this.answersLength = this.birdsData[0].length;
+    this.gameData = gameData;
+    this.answersLength = this.gameData[0].length;
     this.state = {
       isFinish: false,
-      birdImage: unnamedCd,
-      birdName: '',
+      artistImage: unnamedCd,
+      artistName: '',
       round: 0,
       score: 0,
       isGuessed: false,
       answerIndex: this.randomizeAnswer(this.answersLength),
-      maxScore: this.birdsData.length*(this.birdsData[0].length-1)
+      maxScore: this.gameData.length * (this.gameData[0].length - 1),
     };
   }
+
   finishGame() {
     this.setState(
-      {isFinish: true}
-    )
+      { isFinish: true },
+    );
   }
+
   randomizeAnswer(length) {
-    return Math.floor(Math.random() * (length))
+    this.length = length;
+    return Math.floor(Math.random() * (this.length));
   }
+
   guessAnswer() {
     this.setState(
-      {isGuessed: !this.state.isGuessed}
-    )
+      { isGuessed: !this.state.isGuessed },
+    );
   }
-  increaseScore(tryingNumber) {
-    this.setState({score: this.state.score + tryingNumber})
-  };
 
-  showBirdData(birdData) {
-    if (!birdData) {
+  increaseScore(tryingNumber) {
+    this.setState({ score: this.state.score + tryingNumber });
+  }
+
+  setArtistData(artistData) {
+    if (!artistData) {
       this.setState({
-          birdImage: unnamedCd,
-          birdName: '',
-        },
-      );
+        artistImage: unnamedCd,
+        artistName: '',
+      });
     } else {
       this.setState({
-          birdImage: birdData.image,
-          birdName: birdData.name,
-        },
-      );
+        artistImage: artistData.image,
+        artistName: artistData.name,
+      });
     }
-  };
+  }
 
   nextRound() {
     this.setState(
       {
         round: this.state.round + 1,
-        answerIndex: this.randomizeAnswer(this.answersLength)
-      })
+        answerIndex: this.randomizeAnswer(this.answersLength),
+      },
+    );
   }
-
-
-
 
 
   restartGame() {
     this.setState({
       isFinish: false,
       answerIndex: this.randomizeAnswer(this.answersLength),
-      birdImage: unnamedCd,
-      birdName: '',
+      artistImage: unnamedCd,
+      artistName: '',
       score: 0,
       round: 0,
       isGuessed: false,
     });
-    this.showBirdData();
+    this.setArtistData();
     document.querySelectorAll('.main__answers-item').forEach((item) => {
-      item.firstChild.classList.remove("guessed");
-      item.firstChild.classList.remove("not-guessed");
+      item.firstChild.classList.remove('guessed');
+      item.firstChild.classList.remove('not-guessed');
     });
   }
 
@@ -88,16 +89,16 @@ export default class App extends React.Component {
     return (
       <>
         <Header score={this.state.score} round={this.state.round}/>
-        <main className="main" style={{display: !this.state.isFinish ? 'grid' : 'none'}}>
-          <Question birdsData={this.birdsData}
+        <main className="main" style={{ display: !this.state.isFinish ? 'grid' : 'none' }}>
+          <Question gameData={this.gameData}
                     answerIndex={this.state.answerIndex}
-                    birdImage={this.state.birdImage}
-                    birdName={this.state.birdName}
+                    artistImage={this.state.artistImage}
+                    artistName={this.state.artistName}
                     round={this.state.round}
           />
-          <Answers birdsData={this.birdsData}
+          <Answers gameData={this.gameData}
                    answerIndex={this.state.answerIndex}
-                   showBirdData={this.showBirdData.bind(this)}
+                   setArtistData={this.setArtistData.bind(this)}
                    increaseScore={this.increaseScore.bind(this)}
                    round={this.state.round}
                    guessAnswer={this.guessAnswer.bind(this)}
@@ -106,12 +107,11 @@ export default class App extends React.Component {
                    finishGame={this.finishGame.bind(this)}
           />
         </main>
-        <GameOver isFinish={this.state.isFinish }
+        <GameOver isFinish={this.state.isFinish}
                   score={this.state.score}
                   maxScore={this.state.maxScore}
-        restartGame={this.restartGame.bind(this)}/>
+                  restartGame={this.restartGame.bind(this)}/>
       </>
-    )
+    );
   }
 }
-
