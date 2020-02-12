@@ -1,25 +1,33 @@
 @import '../variables';
-.message__congrats{
+
+.message__congrats {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 70%;
   height: 50vh;
   justify-self: center;
-  font-family: "Comic Sans MS", 'Times New Roman', sans-serif;
   align-self: center;
-  margin: 0 auto;
+  margin: 10px auto;
   justify-content: center;
   align-items: center;
   background-color: $white;
   border-radius: 10px;
   border: 10px $yellow solid;
-  &-title{
+
+  &-title {
     font-size: 40px;
   }
-  &-text{
+
+  &-reward {
+    width: 100px;
+  }
+
+  &-text {
+    text-align: center;
     margin-top: 20px;
   }
-  &-button{
+
+  &-button {
     margin-top: 20px;
     width: content-box;
     -webkit-appearance: none;
@@ -27,19 +35,29 @@
     height: 50px;
     outline: none;
     background-color: $yellow;
-    padding: 0;
+    padding: 5px;
     border: $black solid 3px;
     font: inherit;
     color: inherit;
   }
-  &-button:active{
+
+  &-button:active {
     transform: translateY(2px);
     background-color: $white;
   }
-  &-button:hover{
+
+  &-button:hover {
     cursor: pointer;
   }
 }
-.message__hide{
+
+.message__hide {
   display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .message__congrats {
+    width: calc(100% - 20px);
+  }
+
 }

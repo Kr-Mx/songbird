@@ -48,8 +48,8 @@
 
 @media screen and (max-width: 480px) {
   .main__answers {
-    width: calc(95% - 6px);
-    max-width: 400px;
+    width: calc(90% - 6px);
+    max-width: 320px;
     margin: 5px 0;
     display: flex;
     justify-self: center;
@@ -59,6 +59,19 @@
     &-item {
       height: 25px;
     }
+  }
+
+}
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .main__answers {
+    width: calc(95% - 6px);
+    max-width: 320px;
+    margin: 5px 0;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    flex-direction: column;
+
   }
 
 }

@@ -33,6 +33,8 @@
     justify-self: center;
     align-self: center;
     grid-area: audio;
+    max-width: 100%;
+    min-width: 250px;
   }
   &-species{
     display: flex;
@@ -94,9 +96,6 @@
       content: ' — ';
       margin: 0 2px;
     }
-    &-audio{
-      width: 250px;
-    }
   }
   .main__hint{
     width: calc(95% - 26px);
@@ -105,4 +104,13 @@
     margin: 0;
     padding: 5px;
   }
+}
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .main__hint{
+    margin: 5px;
+  }
+  .main__description {
+    margin: 5px;
+  }
+
 }

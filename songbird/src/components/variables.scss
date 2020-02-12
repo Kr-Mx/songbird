@@ -8,12 +8,7 @@ background-color: $white;
   box-shadow: none;
 }
 $border: $yellow solid 3px;
-%container{
-  background-color: $white;
-  color: $black;
-  border: $border;
-  border-radius: 10px;
-}
+
 %self-center{
   display: flex;
   justify-self: center;

@@ -4,6 +4,7 @@
 @import "components/Description/Description";
 @import "components/Footer/Footer";
 @import "components/GameOver/GameOver";
+
 @font-face {
   font-family: "I Am A Bird";
   src: url("./asserts/fonts/firstBird/cf682aeb1c9d3ed5d08fc63253cd61ea.eot"); /* IE9*/
@@ -20,7 +21,7 @@
 }
 
 .body {
-background-color: $gray;
+  background-color: $gray;
   font-family: "I Am A Bird", 'Times New Roman', sans-serif;
   list-style-type: none;
 }
@@ -37,13 +38,26 @@ background-color: $gray;
   height: 81vh;
   margin: 0 auto;
   display: grid;
-  grid-template-areas: 'question question'
-  'answers description' 'footer footer';
+  grid-template-areas: 'question question' 'answers description' 'footer footer';
 }
+
 @media screen and (max-width: 480px) {
-  .main{
+  .main {
     width: 100%;
-    grid-template-areas: 'question'
-    'answers'  'footer' 'description';
+    grid-template-areas: 'question' 'answers' 'footer' 'description';
   }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .main {
+    width: 90%;
+    grid-template-areas: 'question' 'answers' 'footer' 'description';
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .main {
+    width: 90%;
+  }
+
 }

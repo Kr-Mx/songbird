@@ -71,3 +71,13 @@
   }
 
 }
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .footer {
+
+    &__contacts {
+      display: none;
+    }
+
+  }
+
+}

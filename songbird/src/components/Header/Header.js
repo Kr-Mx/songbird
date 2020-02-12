@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Header (props) {
-  const categoryArray = ['80\'s Pop', '90\'s Pop', '2000\'s Rap', '2005\'s Rock', 'Foreign Hits', 'Soundtracks'];
+  const categoryArray = ['80\'s Pop', '90\'s Pop', '2000\'s Rap', '2005\'s Rock', 'Foreign Hits', 'Soundtrack'];
   const listItems = categoryArray.map((item, index) => {
    return (document.documentElement.clientWidth > 480)?((index === props.round)?<li className='header__status-element active' key={index}>{item}</li>:
       <li className='header__status-element' key={index}>{item}</li>):(index === props.round)?<li className='header__status-element active' key={index}>{item}</li>:

@@ -7,7 +7,10 @@
   align-items: center;
   grid-template-columns: 10fr 1fr;
   height: 15vh;
-  @extend %container;
+  background-color: $white;
+  color: $black;
+  border: $border;
+  border-radius: 10px;
 
   &__logo {
     font-family: "Birdland Aeroplane", 'Times New Roman', sans-serif;
@@ -55,7 +58,7 @@
 
 @media screen and (max-width: 480px) {
   .header {
-    width: calc(100vw - 6px);
+    width: calc(100% - 6px);
     border-radius: 0;
     height:75px;
     &__logo{
@@ -76,4 +79,19 @@
       }
     }
   }
+}
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+  .header {
+    border-radius: 0;
+    &__score{
+      margin-right: 10px;
+    }
+    &__status {
+      &-element{
+        word-break: break-word;
+        text-align: center;
+      }
+    }
+  }
+
 }
