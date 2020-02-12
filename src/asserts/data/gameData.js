@@ -301,4 +301,6 @@ const gameData = [
   ]
 ];
 
+export const categoryArray = ['80\'s Pop', '90\'s Pop', '2000\'s Rap', '2005\'s Rock', 'Foreign Hits', 'Soundtrack'];
+
 export default gameData;

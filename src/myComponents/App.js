@@ -3,23 +3,24 @@ import Header from './components/Header';
 import Question from './components/Question';
 import Answers from './components/Answers';
 import unnamedCd from '../asserts/images/unnamedCd.svg';
-import gameData from '../asserts/data/gameData';
+import gameData, { categoryArray } from '../asserts/data/gameData';
 import GameOver from './components/GameOver';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+    this.categoryArray = categoryArray;
     this.gameData = gameData;
     this.answersLength = this.gameData[0].length;
     this.state = {
       isFinish: false,
+      isGuessed: false,
       artistImage: unnamedCd,
       artistName: '',
       round: 0,
       score: 0,
-      isGuessed: false,
-      answerIndex: this.randomizeAnswer(this.answersLength),
       maxScore: this.gameData.length * (this.gameData[0].length - 1),
+      answerIndex: this.randomizeAnswer(this.answersLength),
     };
   }
 
@@ -27,11 +28,6 @@ export default class App extends React.Component {
     this.setState(
       { isFinish: true },
     );
-  }
-
-  randomizeAnswer(length) {
-    this.length = length;
-    return Math.floor(Math.random() * (this.length));
   }
 
   guessAnswer() {
@@ -42,6 +38,11 @@ export default class App extends React.Component {
 
   increaseScore(tryingNumber) {
     this.setState({ score: this.state.score + tryingNumber });
+  }
+
+  randomizeAnswer(length) {
+    this.length = length;
+    return Math.floor(Math.random() * (this.length));
   }
 
   setArtistData(artistData) {
@@ -67,7 +68,6 @@ export default class App extends React.Component {
     );
   }
 
-
   restartGame() {
     this.setState({
       isFinish: false,
@@ -86,25 +86,29 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log('Грузится со стороннего ресурса надо подождать... Extra scope со звуком не делал)');
+    console.log(`Правильный вариант №${this.state.answerIndex + 1}`);
     return (
       <>
-        <Header score={this.state.score} round={this.state.round}/>
-        <main className="main" style={{ display: !this.state.isFinish ? 'grid' : 'none' }}>
+        <Header score={this.state.score}
+                round={this.state.round}
+                categoryArray={ this.categoryArray}/>
+        <main className="main" style={ { display: !this.state.isFinish ? 'grid' : 'none' } }>
           <Question gameData={this.gameData}
+                    round={this.state.round}
                     answerIndex={this.state.answerIndex}
                     artistImage={this.state.artistImage}
                     artistName={this.state.artistName}
-                    round={this.state.round}
           />
           <Answers gameData={this.gameData}
+                   finishGame={this.finishGame.bind(this)}
                    answerIndex={this.state.answerIndex}
                    setArtistData={this.setArtistData.bind(this)}
                    increaseScore={this.increaseScore.bind(this)}
                    round={this.state.round}
-                   guessAnswer={this.guessAnswer.bind(this)}
                    isGuessed={this.state.isGuessed}
+                   guessAnswer={this.guessAnswer.bind(this)}
                    nextRound={this.nextRound.bind(this)}
-                   finishGame={this.finishGame.bind(this)}
           />
         </main>
         <GameOver isFinish={this.state.isFinish}

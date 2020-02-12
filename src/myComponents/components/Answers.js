@@ -12,13 +12,10 @@ export default class Answers extends React.Component {
   }
 
   checkArtist(artistData, e) {
-    if (e.target.tagName !== 'LI') return null;
+    if (e.target.tagName !== 'LI' || e.target.firstChild.classList.length > 1 || this.props.isGuessed) { return null; }
     this.setState({
       artistData: artistData,
     });
-    if (e.target.firstChild.classList.length > 1 || this.props.isGuessed) {
-      return null;
-    }
     if (artistData.name === this.props.gameData[this.props.round][this.props.answerIndex].name) {
       e.target.firstChild.classList.add('guessed');
       this.props.setArtistData(artistData);
@@ -36,7 +33,7 @@ export default class Answers extends React.Component {
   }
 
   changeRound() {
-    if (!this.props.isGuessed) return;
+    if (!this.props.isGuessed) { return null; }
     if (this.props.round === this.props.gameData.length - 1) {
       this.props.finishGame();
       this.setState({
@@ -48,8 +45,8 @@ export default class Answers extends React.Component {
         artistData: null,
       });
       this.props.nextRound();
-      this.props.guessAnswer();
       this.props.setArtistData();
+      this.props.guessAnswer();
       document.querySelectorAll('.main__answers-item').forEach((item) => {
         item.firstChild.classList.remove('guessed');
         item.firstChild.classList.remove('not-guessed');
@@ -58,24 +55,25 @@ export default class Answers extends React.Component {
   }
 
   render() {
-    console.log('Грузится со стороннего ресурса надо подождать...');
-    console.log(`Правильный вариант №${this.props.answerIndex+1}`);
-    let answersList = this.props.gameData[this.props.round].map((artistData) => {
-      return <li className='main__answers-item' key={artistData.id} onClick={this.checkArtist.bind(this, artistData)}>
-          <div className='main__answers-item-signal'></div>
-          {artistData.name}</li>;
+    this.answersList = this.props.gameData[this.props.round].map((artistData) => {
+      return (
+        <li className='main__answers-item' key={artistData.id} onClick={this.checkArtist.bind(this, artistData)}>
+          <div className='main__answers-item-signal'> </div>
+          {artistData.name}
+        </li>);
     });
     return (
       <>
         <ul className='main__answers'>
-          {answersList}
+          {this.answersList}
         </ul>
-        <Description artistData={this.state.artistData}
-                     gameData={this.props.gameData}
+        <Description gameData={this.props.gameData}
+                     artistData={this.state.artistData}
                      round={this.props.round}
         />
-        <Footer nextRound={this.changeRound.bind(this)} isGuessed={this.props.isGuessed}/>
+        <Footer nextRound={this.changeRound.bind(this)}
+                isGuessed={this.props.isGuessed}/>
       </>
-    )
+    );
   }
 }

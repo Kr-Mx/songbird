@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Description(props) {
-  const source = !!props.artistData ? props.artistData : props.gameData[props.round][0];
+  const source = props.artistData ? props.artistData : props.gameData[props.round][0];
   return (
     (props.artistData === null)
       ? <p className='main__hint'>Listen to the recording and select the name of the group or artist whose song
